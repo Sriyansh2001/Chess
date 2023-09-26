@@ -13,9 +13,13 @@ import BlackKing from '../Images/blackking.png';
 import BlackRook from '../Images/blackrook.png';
 
 import Start from '../Sound/start.mp3';
+import { removeBlur } from './BoardDesign/style';
 
-export const setpieces = (grid,setgrid,setchance)=> {
+export const setpieces = (grid,setgrid,setchance,pick)=> {
     // console.log(grid);
+    //Remove blur.
+    removeBlur(pick.x,pick.y);
+    //Initialization
     let start = new Audio(Start);
     start.play();
     var obj = {...grid}

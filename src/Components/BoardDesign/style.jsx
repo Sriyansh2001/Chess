@@ -1,4 +1,35 @@
 import { Box ,styled } from "@mui/material"
+import dot from '../../Images/Dot.png';
+
+export const addBlur = (x,y)=> {
+    const pickclsName = String.fromCharCode(x+97)+(y+1);
+    document.getElementsByClassName(pickclsName)[0].style.opacity=0.6;
+}
+
+export const removeBlur = (x,y) => {
+    const pickclsName = String.fromCharCode(x+97)+(y+1);
+    document.getElementsByClassName(pickclsName)[0].style.opacity=1;
+}
+
+export const blur_all_path = (path,x,y,grid) => {
+    for(let i=0 ; i<path.length ; ++i) {
+        let a = path[i][0], b = path[i][1];
+        console.log(a,b,x,y);
+        if(a !== x || b != y) {
+            grid[a][b].image = dot;
+        }
+    }
+}
+
+export const remove_all_path = (path,x,y,grid) => {
+    for(let i=0 ; i<path.length ; ++i) {
+        let a = path[i][0], b = path[i][1];
+        console.log(a,b,x,y);
+        if(a !== x || b != y) {
+            grid[a][b].image = "";
+        }
+    }
+}
 
 export const Block = styled(Box)`
     position: relative;
